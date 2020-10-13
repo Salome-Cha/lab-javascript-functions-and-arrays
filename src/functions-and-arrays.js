@@ -1,18 +1,152 @@
+
+// LAB FUNCTIONS AND ARRAYS
+
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers (wordOne, wordTwo) {
+  if (wordOne.length > wordTwo.length) {
+    return wordOne;
+  } else if (wordTwo.length > wordOne.length) {
+    return wordTwo;
+  } else {
+    return wordOne;
+  } 
+}
+
 // Iteration #2: Find longest word
+
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+ 
+
+function findLongestWord (words) {
+  if (words.length !== 0) {
+  let longestWord = '';
+  for (let i=0; i<words.length; i++) {
+   if (words[i].length > longestWord.length) {
+    longestWord = words[i];
+    }
+  }
+  return longestWord;}
+  else {return null;}
+}
+
+findLongestWord (words);
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers (numbers) {
+  let sum = 0;
+  for (let i=0; i<numbers.length; i++) {
+    sum = sum + numbers[i]
+  }
+  return sum
+}
+console.log(sumNumbers(numbers))
+
+// 3.1 BONUS 
+
+
+// I'm trying the bonus with a switch : not working, not sure it's correct syntax for a switch (in case):
+
+/*
+function sum (array) {
+  
+  let sum1 = 0;
+  for (let i=0; i<array.length; i++) {
+    let iteration = array[i];
+    if (typeOf (iteration) === "string") {
+      sum1 = sum1 + array[i].length;
+    } else if (typeOf (iteration) === "string") 
+    { sum1 = sum1 + array[i].length;} {
+      else if (iteration === false)
+    {sum1 = sum1;
+    } else if (iteration === true) {
+      sum1 = sum1 + 1;
+    } else if (typeOf (iteration) === number) {
+      sum1 = sum1 + array[i]
+    }}
+
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+*/
+
+// Then I'm trying the bonus with an if else if statement, but it's not working neither:
+/*
+function sum (array) {
+  
+  let sum1 = 0;
+  
+  for (let i=0; i<array.length; i++) 
+  { let iteration = array[i];
+    if (typeOf (iteration) === "string") {
+      sum1 = sum1 + array[i].length;
+    } 
+    else if (typeOf (iteration) === "string") 
+    { sum1 = sum1 + array[i].length;} 
+      else if (iteration === false)
+    {sum1 = sum1;
+    } 
+    else if (iteration === true) {
+      sum1 = sum1 + 1;
+    } 
+    else if (typeOf (iteration) === number) {
+      sum1 = sum1 + array[i]
+    }
+    else { console.log ("Please check the content of your array!");}
+  }
+
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+  
+sum (mixedarr);
+*/
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers (array) {
+  if (array.length !== 0) {
+    return sumNumbers(array) / array.length;
+  } else { return null;}
+}
+
+let result1 = averageNumbers([1, 2, 3]);
+console.log(result1);
+
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+
+function sumOfLength (array) {
+let sumString = 0;
+  for (let i=0; i<array.length; i++) {
+    sumString = sumString + array[i].length
+  }
+  return sumString
+}
+
+console.log(sumOfLength (["yes","no"]))
+
+
+function averageWordLength (array) {
+  if (array.length !== 0) {
+  let stringAverage = sumOfLength(array)/ array.length;
+  return stringAverage;}
+  else 
+  {return null}
+}
+
+console.log (averageWordLength(wordsArr))
+
+// BONUS to do later: Bonus - Iteration #4.1: A generic avg() function
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +163,43 @@ const wordsUnique = [
   'bring'
 ];
 
+// I don't manage to shorten the array by erasing the double value ???
+
+function uniquifyArray(array) {
+  if (array.length !== 0) {
+      for (let i=0; i<array.length; i++) {
+        if (array.indexOf(i) === array.lastIndexOf(i)) {
+          return array;}
+          else if (array.indexOf(i) !== array.lastIndexOf(i)) {
+        array = array.splice(i, 1);
+        return array;
+        } else {
+          return array;
+        }}
+    } 
+    else {
+  return null
+  }
+}
+
+console.log (uniquifyArray(wordsUnique));
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+
+function doesWordExist (array, specificWord) {
+  if (array.length !== 0) {
+  for (let i= 0; i < array.length; i++) {
+  return array.includes(specificWord, [0]);
+}}
+else { return null }
+}
+
+console.log(doesWordExist(wordsFind, "machine"));
+console.log(doesWordExist(wordsFind, "machina"));
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +215,20 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (array, wordToSearch) {
+  if (array.length !== 0) {
+    let n = 0;
+    for (i = 0; i< array.length; i++) {
+      if(array[i] === wordToSearch) {n++}
+    }
+    return n;
+  } else {
+    return 0;
+  }
+}
+
+console.log(howManyTimes (wordsCount, "matter"));
 
 // Iteration #8: Bonus
 
