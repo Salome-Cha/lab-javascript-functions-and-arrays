@@ -3,14 +3,14 @@
 
 // Iteration #1: Find the maximum
 
-function maxOfTwoNumbers (wordOne, wordTwo) {
-  if (wordOne.length > wordTwo.length) {
-    return wordOne;
-  } else if (wordTwo.length > wordOne.length) {
-    return wordTwo;
-  } else {
-    return wordOne;
+// note pour moi: pas besoin de mettre la condition else car si la première n'est pas validé, c'est la seconde partie qui sera executée. 
+
+function maxOfTwoNumbers (num1, num2) {
+  if (num1 > num2) {
+    return num1;
   } 
+  return num2;
+
 }
 
 // Iteration #2: Find longest word
@@ -163,8 +163,20 @@ const wordsUnique = [
   'bring'
 ];
 
-// I don't manage to shorten the array by erasing the double value ???
 
+function uniquifyArray(array) {
+  if (array.length !== 0) {
+  return array.filter((a, b) => array.indexOf(a) === b)
+}
+else {
+  return null
+  }
+}
+
+
+console.log (uniquifyArray(wordsUnique));
+
+/* First test, was not working:
 function uniquifyArray(array) {
   if (array.length !== 0) {
       for (let i=0; i<array.length; i++) {
@@ -181,8 +193,9 @@ function uniquifyArray(array) {
   return null
   }
 }
+*/
 
-console.log (uniquifyArray(wordsUnique));
+
 
 
 // Iteration #6: Find elements
